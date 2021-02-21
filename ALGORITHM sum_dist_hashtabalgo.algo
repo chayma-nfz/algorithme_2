@@ -1,0 +1,32 @@
+ALGORITHM sum_dist_hashtab
+VAR
+    tab1,tab2 : ARRAY_OF integer[20];
+  hashtab: HASH_TABLE<INTEGER,INTEGER> ;
+  sum: INTEGER :=0;
+  i,j :INTEGER ;
+BEGIN
+
+FOR i FROM 0 TO tab1.length -1 STEP 1  DO
+    
+IF    ( tab1[i] <> tab2[j] ) and ( hashtab.get(tab1[i]=1))THEN
+    sum :=sum + tab1[i] ;
+    
+    ELSE
+        hashtab.insert(tab1[i],1)   
+END_IF
+       i++;
+END_FOR
+FOR j FROM 0 TO tab2.length -1 STEP 1  DO
+    
+IF    ( tab2[j] <> tab1[i] ) and ( hashtab.get(tab2[j]=1))THEN
+    sum :=sum + tab2[j] ;
+     
+    ELSE
+        hashtab.insert(tab2[j],1) 
+    
+END_IF
+        j++;
+END_FOR
+ write (sum)
+
+END
